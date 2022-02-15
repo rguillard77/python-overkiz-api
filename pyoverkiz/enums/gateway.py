@@ -43,6 +43,7 @@ class GatewayType(IntEnum):
     COZYTOUCH_SAUTER = 83
     WISER = 88
     TAHOMA_SWITCH = 98
+    SOMFY_CONNECTIVITY_KIT = 99
     COZYTOUCH_V2 = 105
 
     @classmethod
@@ -52,7 +53,10 @@ class GatewayType(IntEnum):
 
     @property
     def beautify_name(self) -> str:
-        return self.name.replace("_", " ").title()
+        name = self.name.replace("_", " ").title()
+        name = name.replace("Tahoma", "TaHoma")
+        name = name.replace("Rts", "RTS")
+        return name
 
 
 @unique
@@ -83,7 +87,10 @@ class GatewaySubType(IntEnum):
 
     @property
     def beautify_name(self) -> str:
-        return self.name.replace("_", " ").title()
+        name = self.name.replace("_", " ").title()
+        name = name.replace("Tahoma", "TaHoma")
+        name = name.replace("Rts", "RTS")
+        return name
 
 
 @unique
